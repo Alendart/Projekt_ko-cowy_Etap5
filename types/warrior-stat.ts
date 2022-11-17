@@ -1,0 +1,1 @@
+export type WarriorStat = {str:number;def:number;end:number;agl:number};
