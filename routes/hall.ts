@@ -1,9 +1,13 @@
 import {Router} from "express";
+import {WarriorRecord} from "../records/warrior.record";
 
 
 export const hallRouter = Router();
 
 hallRouter
-    .get('/',(req, res) => {
-      res.render('hall/hall-of-fame')
+    .get('/',async (req, res) => {
+        const allWarriors = await WarriorRecord.findAllWarriors();
+        res.render('hall/hall-of-fame',{
+            allWarriors
+        })
     })

@@ -1,1 +1,13 @@
 <h2>Hall of fame</h2>
+<table class="hall">
+    <tr class="hall-header">
+        <th>Warrior name:</th>
+        <th>Win Count:</th>
+    </tr>
+    {{#each allWarriors}}
+        <tr>
+            <th>{{this.name}}</th>
+            <th>{{this.winCount}}</th>
+        </tr>
+    {{/each}}
+</table>

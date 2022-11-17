@@ -64,7 +64,7 @@ export class WarriorRecord{
     }
 
     static async findAllWarriors():Promise<WarriorRecord[]>{
-        const [warriors]:any = (await pool.execute('SELECT * FROM `warrior`'));
+        const [warriors]:any = (await pool.execute('SELECT * FROM `warrior` ORDER BY `winCount` DESC'));
         return warriors.map((war:WarriorRecord) => new WarriorRecord(war));
     }
 
