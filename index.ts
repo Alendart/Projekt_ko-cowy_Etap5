@@ -1,4 +1,5 @@
 import * as express from 'express';
+import 'express-async-errors'
 import * as methodOverride from "method-override";
 import * as cookieParser from 'cookie-parser';
 import {engine} from 'express-handlebars'
@@ -7,6 +8,7 @@ import {userRouter} from "./routes/user";
 import {warriorRouter} from "./routes/warrior";
 import {handlebarsHelpers} from "./utils/handlebars-helpers";
 import {hallRouter} from "./routes/hall";
+import {errorHandler} from "./utils/errors-handler";
 
 
 
@@ -33,5 +35,6 @@ app
     .use('/warrior', warriorRouter)
     .use('/hall',hallRouter)
 
+app.use(errorHandler)
 
 app.listen(3000,() => console.log("Listening on http://localhost:3000/"))

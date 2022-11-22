@@ -1,4 +1,5 @@
 import {pool} from "../utils/db";
+import {ValidationError} from "../utils/errors-handler";
 
 
 export class WarriorRecord{
@@ -17,6 +18,7 @@ export class WarriorRecord{
         this.agility = Number(obj.agility);
         this.winCount = obj.winCount ?? 0;
         this.checkStatCount();
+        this.checkName();
 
     }
 
@@ -27,9 +29,20 @@ export class WarriorRecord{
     private checkStatCount():void{
         const sum = this.strength + this.defence + this.endurance + this.agility
         if (sum !== 10){
-            throw new Error('Warrior need to spend all 10 points!');
+            throw new ValidationError('Warrior need to spend all 10 points!');
+        }
+        if (this.strength<1 || this.defence<1 || this.endurance<1 || this.agility<1){
+            throw new ValidationError('Each statistic need to have at least one point')
         }
     }
+
+    private checkName():void{
+        if (this.name.length<3 || this.name.length>20){
+            throw new ValidationError('Warrior name need to have between 3 and 20 characters')
+        }
+
+    }
+
 
 
     async create():Promise<void>{

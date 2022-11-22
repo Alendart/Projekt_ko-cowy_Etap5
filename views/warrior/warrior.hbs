@@ -1,10 +1,11 @@
 
 {{#if warrior}}
+    <div>
     <h2>Your warrior:</h2>
     {{#with warrior}}
         <p>Warrior IMAGE placeholder</p>
         <p>{{this.name}}</p>
-        <ul>Attributes:
+        <ul class="attributes">Attributes:
             <li>Strength: {{this.strength}}</li>
             <li>Defence: {{this.defence}}</li>
             <li>Endurance: {{this.endurance}}</li>
@@ -13,38 +14,62 @@
     {{/with}}
     <p>You are ready to fight!</p>
     <a class="button" href="/">Go to Arena!</a>
+    </div>
 {{else}}
+
     {{#with newWarrior}}
+        <div class="new-warrior-header">
         <h2>Create new warrior:</h2>
-    <form action="/warrior/" method="post">
-        <label class="name-label" for="name">Warrior name:</label>
-        <input type="text" id="name" name="name" required>
-        <hr>
-        <p>Skill points left: {{sum ../newWarrior}}</p>
-        <hr>
-        <label for="str">Strength:</label>
-        <input type=number id="str" name="strength" required readonly value="{{this.str}}" min="1" max="10">
-        <a class="inc-dec-button" href="/warrior/inc/str">+</a>
-        <a class="inc-dec-button" href="/warrior/dec/str">-</a>
-        <br>
-        <label class="stat-label" for="def">Defence:</label>
-        <input type=number id="def" name="defence" required readonly value="{{this.def}}" min="1" max="10">
-        <a class="inc-dec-button" href="/warrior/inc/def">+</a>
-        <a class="inc-dec-button" href="/warrior/dec/def">-</a>
-        <br>
-        <label class="stat-label" for="end">Endurance:</label>
-        <input type=number id="end" name="endurance" required readonly value="{{this.end}}" min="1" max="7">
-        <a class="inc-dec-button" href="/warrior/inc/end">+</a>
-        <a class="inc-dec-button" href="/warrior/dec/end">-</a>
-        <br>
-        <label class="stat-label" for="agl">Agility:</label>
-        <input type=number id="agl" name="agility" required readonly value="{{this.agl}}" min="1" max="7">
-        <a class="inc-dec-button" href="/warrior/inc/agl">+</a>
-        <a class="inc-dec-button" href="/warrior/dec/agl">-</a>
-        <br>
-        <input type="submit" {{disable ../newWarrior}}>
-    </form>
+            <p>Skill points left: {{sum ../newWarrior}}</p>
+            <hr>
+        </div>
+        <div class="new-warrior-div">
+        <div class="stat-form">
+
+            <form action="/warrior/" method="post">
+                <label class="name-label" for="name">Warrior name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label class="stat-label" for="str">Strength:</label>
+                <input class="stat-input" type=number id="str" name="strength" required readonly value="{{this.str}}" min="1" max="10">
+                <br>
+                <label class="stat-label" for="def">Defence:</label>
+                <input class="stat-input" type=number id="def" name="defence" required readonly value="{{this.def}}" min="1" max="10">
+                <br>
+                <label class="stat-label" for="end">Endurance:</label>
+                <input class="stat-input" type=number id="end" name="endurance" required readonly value="{{this.end}}" min="1" max="7">
+                <br>
+                <label class="stat-label" for="agl">Agility:</label>
+                <input class="stat-input"  type=number id="agl" name="agility" required readonly value="{{this.agl}}" min="1" max="7">
+                <br>
+                <button type="submit" {{disable ../newWarrior}}>Create!</button>
+            </form>
+        </div>
+        <div class="inc-dec-buttons">
+            <div class="box">
+                <a class="inc-dec-button" href="/warrior/inc/str">+</a>
+                <a class="inc-dec-button" href="/warrior/dec/str">-</a>
+            </div>
+            <div class="box">
+                <a class="inc-dec-button" href="/warrior/inc/def">+</a>
+                <a class="inc-dec-button" href="/warrior/dec/def">-</a>
+            </div>
+            <div class="box">
+                <a class="inc-dec-button" href="/warrior/inc/end">+</a>
+                <a class="inc-dec-button" href="/warrior/dec/end">-</a>
+            </div>
+            <div class="box">
+                <a class="inc-dec-button" href="/warrior/inc/agl">+</a>
+                <a class="inc-dec-button" href="/warrior/dec/agl">-</a>
+            </div>
+
+        </div>
     {{/with}}
+    <div class="stat-fighter">
+
+    </div>
+        <p>Tutaj będą atrybuty</p>
+    </div>
 {{/if}}
 
 

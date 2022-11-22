@@ -1,0 +1,114 @@
+* {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+header{
+    text-align: center;
+}
+
+body{
+
+    /*background-image: url("../../images/background.jpg");*/
+    /*background-attachment: scroll;*/
+    /*background-repeat: repeat-x;*/
+
+}
+
+.button{
+    border: 1px dotted black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5% 0 5%;
+
+}
+
+.main-text{
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.inc-dec-button{
+    border: 2px solid darkred;
+    background-color: black;
+    color: red;
+    border-radius: 6px;
+    padding: 1px 5px;
+    margin: 0 8% 0 8%;
+    width: 15px;
+    height: 18px;
+    float: left;
+
+}
+
+.new-warrior-header{
+    text-align: center;
+}
+
+.stat-form{
+    float: left;
+    width: 40%;
+}
+
+.inc-dec-buttons{
+    margin-top: 2%;
+    float: left;
+    width: 20%;
+}
+
+.stat-fighter{
+    align-content: center;
+    float: left;
+    width: 40%;
+}
+
+.new-warrior-div{
+    width: 100%;
+    height: 200px;
+    border: 2px solid rgba(34, 139, 34, 0.7);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 1%;
+    background-color: rgba(143, 188, 143, 0.5);
+}
+
+.stat-input{
+    margin: 5px 0;
+    font-weight: bold;
+    border:none;
+    width: 25px;
+    height: 18px;
+    background-color: inherit;
+}
+
+.box{
+    margin: 8px 20% 12px 20%;
+    height: 19px;
+}
+
+table{
+    margin: 5% 40%;
+    border: black solid 2px;
+    border-radius: 3px;
+    background-color: rgba(157, 82, 33, 0.5);
+}
+
+.hall-header{
+    font-weight: bold;
+    border: black solid 2px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.hall-content{
+    border: black solid 2px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+

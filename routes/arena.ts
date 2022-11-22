@@ -9,7 +9,15 @@ export const arenaRouter = Router()
 arenaRouter
     .get('/', async (req, res) => {
         // Widok główny areny
-        res.render('arena/arena')
+        const warriorName = req.cookies.warriorName;
+        if (!warriorName){
+            res.render('arena/arena')
+        } else {
+            res.render('arena/arena',{
+                warrior:warriorName
+            })
+        }
+
     })
     .get('/fight', async (req, res) => {
         // Walka - raczej powinna się odbywać w innym pliku - tutaj tylko samo przekazanie danych

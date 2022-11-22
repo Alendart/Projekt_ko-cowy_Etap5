@@ -1,5 +1,12 @@
 <h2>Here you can duel other warriors</h2>
+{{#if warrior}}
+    <a class="button" href="/fight">Start fight</a>
 
-<a class="start-button" href="/fight">Start fight</a>
+    <hr>
+{{else}}
+    <p>You need to sign in into account to start fight!</p>
+    <a class="button" href="/user">Log in!</a>
+    <p>You don't have an account</p>
+    <a class="button" href="/user/create">Create new one now!</a>
+{{/if}}
 
-<hr>

@@ -1,6 +1,7 @@
 import {Router} from "express";
 import {UserRecord} from "../records/user.record";
 import {WarriorRecord} from "../records/warrior.record";
+import {ValidationError} from "../utils/errors-handler";
 
 
 export const userRouter = Router();
@@ -43,9 +44,7 @@ userRouter
             res.redirect('/warrior')
 
         } else {
-            res.render('error/error',{
-                err:'Login or Password are incorrect!'
-            })
+            throw new ValidationError('Login or Password are incorrect!')
         }
 
     })
@@ -63,9 +62,7 @@ userRouter
         const {login,pwd} = req.body
 
         if (await UserRecord.checkLoginAvailability(login)){
-            res.render('error/error',{
-                err:"Login is already used! Please use another one"
-            })
+            throw new ValidationError("Login is already used! Please use another one")
         } else {
             const newUser = new UserRecord({login,pwd})
             await newUser.add()
